@@ -54,4 +54,4 @@ def test_empty_category():
     with pytest.raises(ValueError) as exc_info:
         Transaction(**data)
 
-    assert "Category cannot be empty."
+    assert "Category cannot be empty." in str(exc_info.value)

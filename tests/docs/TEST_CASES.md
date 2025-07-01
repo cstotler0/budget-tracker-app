@@ -26,20 +26,42 @@
 
 ## Module: BudgetManager
 
-| Test ID     | Description                        | Input                                               | Expected Output                 | Status |
-|-------------|------------------------------------|-----------------------------------------------------|----------------------------------|--------|
-| TC-BM-001   | Add valid transaction              | Transaction instance                                | Added and stored successfully   |        |
-| TC-BM-002   | Get all transactions               | (no input)                                          | List of all transactions        |        |
-| TC-BM-003   | Calculate correct balance          | 2 incomes + 3 expenses                              | Correct net total               |        |
-| TC-BM-004   | Filter transactions by category    | category="Food"                                     | Only Food transactions returned |        |
+| Test ID  | Description                        | Input                                               | Expected Output                 | Status |
+|----------|------------------------------------|-----------------------------------------------------|----------------------------------|--------|
+| TC-BM-01 | Add valid transaction              | Transaction instance                                | Added and stored successfully   |        |
+| TC-BM-02 | Get all transactions               | (no input)                                          | List of all transactions        |        |
+| TC-BM-03 | Calculate correct balance          | 2 incomes + 3 expenses                              | Correct net total               |        |
+| TC-BM-04 | Filter transactions by category    | category="Food"                                     | Only Food transactions returned |        |
 
 ---
 
-## Module: DatabaseManager / Repository
+## Module: DatabaseManager
 
-| Test ID     | Description                        | Input                                               | Expected Output                 | Status |
-|-------------|------------------------------------|-----------------------------------------------------|----------------------------------|--------|
-| TC-DB-001   | Save transaction to database       | Valid Transaction                                   | Record inserted successfully    |        |
-| TC-DB-002   | Retrieve transactions from DB      | Query all                                           | Correct data returned           |        |
-| TC-DB-003   | Reject duplicate primary key       | Duplicate ID                                        | IntegrityError raised           |        |
-| TC-DB-004   | Handle empty DB case               | Empty transaction table                             | Empty list returned             |        |
+| Test ID  | Description                        | Input                                               | Expected Output                 | Status |
+|----------|------------------------------------|-----------------------------------------------------|----------------------------------|--------|
+| TC-DB-01 | Save transaction to database       | Valid Transaction                                   | Record inserted successfully    |        |
+| TC-DB-02 | Retrieve transactions from DB      | Query all                                           | Correct data returned           |        |
+| TC-DB-03 | Reject duplicate primary key       | Duplicate ID                                        | IntegrityError raised           |        |
+| TC-DB-04 | Handle empty DB case               | Empty transaction table                             | Empty list returned             |        |
+
+---
+
+## Module: Transaction Repository
+
+| Test ID    | Description                   | Input                    | Expected Output               | Status |
+|------------|-------------------------------|--------------------------|-------------------------------|--------|
+| TC-REPO-01 | Add transaction to database   | Valid Transaction object | Transaction saved in database | PASS   |
+| TC-REPO-02 | Retrieve transactions from DB | Query all                | Correct data returned         | PASS   |
+| TC-REPO-03 | Reject duplicate primary key  | Duplicate ID             | IntegrityError raised         |        |
+| TC-REPO-04 | Handle empty DB case          | Empty transaction table  | Empty list returned           |        |
+
+---
+
+## Module: Main App UI
+
+| Test ID  | Description                   | Input                    | Expected Output               | Status |
+|----------|-------------------------------|--------------------------|-------------------------------|--------|
+| TC-UI-01 | Add transaction to database   | Valid Transaction object | Transaction saved in database | PASS   |
+| TC-UI-02 | Retrieve transactions from DB | Query all                | Correct data returned         | PASS   |
+| TC-UI-03 | Reject duplicate primary key  | Duplicate ID             | IntegrityError raised         |        |
+| TC-UI-04 | Handle empty DB case          | Empty transaction table  | Empty list returned           |        |
